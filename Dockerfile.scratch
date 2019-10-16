@@ -1,3 +1,12 @@
+FROM node:stretch as build
+RUN npm install -g pkg pkg-fetch
+ENV NODE node10
+ENV PLATFORM linux
+ENV ARCH x64
+RUN pkg-fetch ${NODE} ${PLATFORM} ${ARCH}
+COPY . .
+RUN pkg --debug --targets ${NODE}-${PLATFORM}-${ARCH} --output /runme index.js
+
 FROM scratch
-COPY runme /
+COPY --from=build /runme /runme
 CMD ["/runme"]

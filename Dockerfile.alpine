@@ -1,4 +1,13 @@
+FROM node:stretch as build
+RUN npm install -g pkg pkg-fetch
+ENV NODE node10
+ENV PLATFORM alpine
+ENV ARCH x64
+RUN pkg-fetch ${NODE} ${PLATFORM} ${ARCH}
+COPY . .
+RUN pkg --debug --targets ${NODE}-${PLATFORM}-${ARCH} --output /runme index.js
+
 FROM alpine:3.5
-RUN apk add --no-cache libstdc++ libgcc
-COPY runme /
+RUN apk add --no-cache libstdc++
+COPY --from=build /runme /runme
 CMD ["/runme"]

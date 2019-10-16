@@ -4,13 +4,9 @@ _An attempt to package a standalone node project, in the tiniest docker possible
 
 Image | Size | Base Image | Comments
 ------------ | ------------ | ------------ | ------------ 
-runme-scratch | **40.6MB** | `FROM scratch` | not working - see below
+runme-scratch | **40.6MB** | `FROM scratch` | not working - [see issue](https://github.com/zeit/pkg/issues/555#issuecomment-542520344)
 runme-alpine | **46MB** | `FROM alpine:3.5` | 
 runme-node | **75.3MB** | `FROM node:lts-alpine` | 
-
-Error: `standard_init_linux.go:211: exec user process caused "no such file or directory"`
-
-I believe we need [static compilation](https://github.com/zeit/pkg/issues/555).
 
 ## Instructions
 
