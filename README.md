@@ -8,6 +8,8 @@ _An attempt to package a standalone node project, in the tiniest docker possible
 
 * Scratch not working (`standard_init_linux.go:211: exec user process caused "no such file or directory"`)
 
+I believe we need [static compilation](https://github.com/zeit/pkg/issues/555).
+
 ## Instructions
 
 ## Build all docker containers
