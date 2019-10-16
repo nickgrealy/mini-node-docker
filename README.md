@@ -8,3 +8,28 @@ _An attempt to package a standalone node project, in the tiniest docker possible
 
 * Scratch not working (`standard_init_linux.go:211: exec user process caused "no such file or directory"`)
 
+## Instructions
+
+## Build all docker containers
+
+```
+npm run build
+```
+
+### Run - Scratch
+
+```
+npm run start_scratch
+```
+
+### Run - alpine
+
+```
+npm run start_alpine
+```
+
+### Run - node
+
+```
+npm run start_node
+```

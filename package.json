@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prebuild": "./node_modules/.bin/pkg --debug --targets node10-alpine-x64 --output runme index.js",
     "build": "npm run build_scratch && npm run build_alpine && npm run build_node",
+    "prebuild_scratch": "./node_modules/.bin/pkg --debug --targets node10-linux-x64 --output runme index.js",
     "build_scratch": "docker build -f Dockerfile.scratch --tag runme-scratch .",
+    "prebuild_alpine": "./node_modules/.bin/pkg --debug --targets node10-alpine-x64 --output runme index.js",
     "build_alpine": "docker build -f Dockerfile.alpine --tag runme-alpine .",
     "build_node": "docker build -f Dockerfile.node --tag runme-node .",
     "start_scratch": "docker run -it --rm runme-scratch",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/nickgrealy/node-binary-scratch-dockerfile#readme",
   "dependencies": {
-    "pkg": "4.4.0"
+    "pkg": "4.4.0",
+    "pkg-fetch": "2.6.2"
   }
 }
