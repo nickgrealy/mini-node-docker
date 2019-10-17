@@ -1,9 +1,12 @@
 FROM node:stretch as build
-RUN npm install -g pkg pkg-fetch
-ENV NODE node10
+RUN npm install --verbose -g pkg nickgrealy/pkg-fetch
+ENV NODE node8
 ENV PLATFORM linux
 ENV ARCH x64
-RUN pkg-fetch ${NODE} ${PLATFORM} ${ARCH}
+ENV PKG_CACHE_PATH /fetch
+RUN mkdir /fetch
+RUN pkg-fetch -b -s ${NODE} ${PLATFORM} ${ARCH}
+RUN pkg-fetch -b -s node8 linux x64
 COPY . .
 RUN pkg --debug --targets ${NODE}-${PLATFORM}-${ARCH} --output /runme index.js
 
