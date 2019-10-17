@@ -1,6 +1,6 @@
 FROM node:stretch as build
 RUN npm install -g pkg pkg-fetch
-ENV NODE node10
+ENV NODE node8
 ENV PLATFORM alpine
 ENV ARCH x64
 RUN pkg-fetch ${NODE} ${PLATFORM} ${ARCH}
