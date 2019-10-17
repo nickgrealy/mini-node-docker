@@ -7,7 +7,7 @@ RUN pkg-fetch ${NODE} ${PLATFORM} ${ARCH}
 COPY . .
 RUN pkg --debug --targets ${NODE}-${PLATFORM}-${ARCH} --output /runme index.js
 
-FROM alpine:3.5
+FROM alpine:3.10
 RUN apk add --no-cache libstdc++
 COPY --from=build /runme /runme
 CMD ["/runme"]

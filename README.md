@@ -7,5 +7,5 @@ _An attempt to package a standalone node project, in the tiniest docker possible
 Image | Size | Base Image | Run Command | Comments
 ------------ | ------------ | ------------ | ------------ | ------------ 
 runme-scratch | **34.5MB** | `scratch` | `npm run start_scratch` | works with static linked node :thumbsup: ([PR](https://github.com/zeit/pkg-fetch/pull/72))
-runme-alpine | **41.4MB** | `alpine:3.5` | `npm run start_alpine` |
-runme-node | **67.8MB** | `node:lts-alpine` | `npm run start_node` |
+runme-alpine | **43MB** | `alpine:3.10` | `npm run start_alpine` |
+runme-node | **67.8MB** | `node:8-alpine` | `npm run start_node` |
